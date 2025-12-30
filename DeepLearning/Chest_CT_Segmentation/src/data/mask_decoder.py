@@ -53,10 +53,10 @@ def decode_mask(mask, thr=200, low=80, return_debug=False):
         debug = {
             "thr": thr,
             "low": low,
-            "num_background_pixels": np.sum(decoded_mask == BACKGROUND),
-            "num_lung_pixels": np.sum(decoded_mask == LUNG),
-            "num_heart_pixels": np.sum(decoded_mask == HEART),
-            "num_trachea_pixels": np.sum(decoded_mask == TRACHEA),
+            "num_background_pixels": int(np.sum(decoded_mask == BACKGROUND)),
+            "num_lung_pixels": int(np.sum(decoded_mask == LUNG)),
+            "num_heart_pixels": int(np.sum(decoded_mask == HEART)),
+            "num_trachea_pixels": int(np.sum(decoded_mask == TRACHEA)),
             "total_pixels": decoded_mask.size
         }
         return decoded_mask, debug
